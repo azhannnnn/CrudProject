@@ -20,7 +20,7 @@
             url({% static 'img1.jpeg' %});"
         id="inside1"
       >
-      <h1 style="color:red;">{{msg}}</h1>
+      {% comment %} <h1 style="color:red;">{{msg}}</h1> {% endcomment %}
           <h1>Signup</h1>
           <div>
             <form action="{% url "user_register" %}" method="post">
@@ -39,7 +39,7 @@
                 name="cpassword"
               />
               <br />
-              <button value="SIGNUP">Register</button>
+              <button value="SIGNUP"  onclick="display1();">Register</button>
             </form>
             <p>
               have an Account?
@@ -49,5 +49,12 @@
           </div>   
         </div>
     </center>
+    {% comment %} js code for displaying the message {% endcomment %}
+    <script>
+      function display1() {
+        alert("{{msg}}");
+      }
+
+    </script>
   </body>
 </html>
