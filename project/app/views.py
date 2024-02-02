@@ -9,3 +9,7 @@ def registerpage(request):
 
 def loginpage(request):
     return render(request,'login.html')
+
+
+def dashboard(request):
+    return render(request,'dashboard.html')
