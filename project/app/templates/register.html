@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <center>
+        <div
+        class="a"
+        style="
+          -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+            url({% static 'img1.jpeg' %});"
+        id="inside1"
+      >
+          <h1>Signup</h1>
+          <div>
+            <form action="" method="post">
+              {% csrf_token %}
+
+              <input type="text" placeholder="Full Name" name="name" required />
+              <input type="email" placeholder="email" name="email" required />
+              <input
+                type="password"
+                placeholder="password"
+                name="password"
+                required
+              /><br />
+              <input
+                type="password"
+                placeholder="confirm password"
+                name="cpassword"
+              />
+              <br />
+              <button value="SIGNUP">Register</button>
+            </form>
+            <p>
+              have an Account?
+              <a id="rega" href="{% url 'loginpage' %}">Login</a>
+            </p>
+            {{msg}}
+          </div>   
+        </div>
+    </center>
+  </body>
+</html>
