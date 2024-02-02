@@ -9,25 +9,30 @@
   </head>
 
   <body>
-    <div style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url({% static 'img1.jpeg' %})" id="back" >
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3)),url({% static 'img1.jpeg' %})" id="back" >
     <nav id="nav-bar">
       <div id="logo">MY Train</div>
-
       <div id="links">
         <ul>
           <li><a class="hoa" href="{% url 'registerpage' %}">Signup</a></li>
           <li><a class="log" href="{% url 'loginpage' %}">Login</a></li>
-          
         </ul>
       </div>
     </nav>
+    <br><br><br><br><br><br><br>
+    <center>
+    <div id='home-abt'>
+            <h1>About Us</h1>
+            <p>Indian Railways (IR) is a statutory body under the ownership of the Ministry of Railways of the Government of India that operates India's national railway system. As of 2023, it manages the fourth largest national railway system by size with a running track length of 104,647 km (65,025 mi) and route length of 68,426 km (42,518 mi) of which 60,451 km (37,563 mi) is electrified. With more than 1.2 million employees, it is the world's ninth-largest employer.
 
-    
-        
-       
+                The first steam operated railway operated in 1837 in Madras with the first passenger operating in 1853 between Bombay and Thane. In 1925, the first electric train ran in Bombay on DC traction. The first locomotive manufacturing unit was commissioned in 1950 at Chittaranjan with the first coach manufacturing unit set-up at Madras in 1955. Various companies operating railways across the country were re-organised into six regional zones in 1951, which were gradually expanded to 19 zones.
+                
+                Indian Railways runs various classes of express, passengers and suburban trains. In 2018-19, it operated 13,523 trains on average daily covering 7,325 stations and carried 8.44 billion passengers. Indian Railways also operates different classes of rail freight transport. In 2022-23, it operated 8,479 trains on average daily and transported 1418.1 million tonnes of freight. Indian Railways operates multiple classes of rolling stock, manufactured by self-owned coach-production facilities. As of March 2022, Indian Railways' rolling stock consisted of 318,196 freight wagons and 84,863 passenger coaches. As of December 2023, Indian Railways had 10,238 electric and 4,543 diesel locomotives amongst others.</p>
+        </div>
+    </center>
     </div>
 
-    <footer id="foot-bar">
+    <footer id="foot-bar"  style="background-image: url({% static 'foot.jpg' %})">
       <center><div>Made with Love</div></center>
     </footer>
   </body>

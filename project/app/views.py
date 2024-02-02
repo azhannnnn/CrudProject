@@ -18,6 +18,7 @@ def loginpage(request):
 
 
 
+
 def user_register(request):
     if request.method == "POST":
         Name = request.POST.get("name")
@@ -62,7 +63,7 @@ def userLogin(request):
                     'Name':Name,
                     'Email':Email,
                 }
-                return render(request,"home.html",user)
+                return render(request,"dashboard.html",user)
             else:
                 message = "Password not match"
                 return render(request, "login.html", {"msg": message})
@@ -72,8 +73,5 @@ def userLogin(request):
 
 
 
-
-
-
-
-
+def dashboard(request):
+    return render(request,'dashboard.html')

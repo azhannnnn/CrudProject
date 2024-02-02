@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3)),url({% static 'img1.jpeg' %})" id="back" >
+    <nav id="nav-bar">
+      <div id="logo">MY Train</div>
+      <div id="links">
+        <ul>
+          <li><a class="hoa" href="{% url 'registerpage' %}">Dashboard</a></li>
+          <li><a class="hoa" href="{% url 'registerpage' %}">Booking</a></li>
+          <li><a class="hoa" href="{% url 'registerpage' %}">My tickets</a></li>
+          <li><a class="hoa" href="{% url 'registerpage' %}">Signup</a></li>
+          <li><a class="log" href="{% url 'registerpage' %}">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+
+     <br><br><br><br><br><br><br>
+     <div id='inner'>
+        <center><button id='btn-dash'>My Profile</button><br>
+        <button id='btn-dash'>Bookings</button><br>
+        <button id='btn-dash'>My tickets</button><br>
+        <button id='btn-dash'>Journey</button><br>
+        <button id='btn-dash'>Logout</button><br>
+        </center>
+     </div>
+    
+        
+       
+    </div>
+
+    <footer id="foot-bar" style="background-image: url({% static 'foot.jpg' %})">
+      <center><div>Made with Love</div></center>
+    </footer>
+  </body>
+</html>
