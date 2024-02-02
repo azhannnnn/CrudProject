@@ -21,11 +21,11 @@
             url({% static 'img1.jpeg' %});"
         id="inside1"
       >
+      <h1 style="color:red;">{{msg}}</h1>
           <h1>Signup</h1>
           <div>
-            <form action="" method="post">
+            <form action="{% url "user_register" %}" method="post">
               {% csrf_token %}
-
               <input type="text" placeholder="Full Name" name="name" required />
               <input type="email" placeholder="email" name="email" required />
               <input
@@ -46,7 +46,7 @@
               have an Account?
               <a id="rega" href="{% url 'loginpage' %}">Login</a>
             </p>
-            {{msg}}
+            
           </div>   
         </div>
     </center>
