@@ -3,12 +3,15 @@ from django .http import HttpResponse
 
 
 
-def home(request):
-    
-    return HttpResponse("First time commit")
-
 
 # Create your views here.
-def index(request):
-    # ugu
-    return HttpResponse('hello')
+
+def home(request):
+    return render(request, 'home.html')
+
+def registerpage(request):
+    return render(request,'register.html')
+
+def loginpage(request):
+    return render(request,'login.html')
+
