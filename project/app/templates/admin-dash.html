@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3)),url({% static 'img1.jpeg' %})" id="back" >
+    <nav id="nav-bar">
+      <div id="logo">MY Train</div>
+      <div id="links">
+        <ul>
+          <li><a class="hoa" href="{% url 'registerpage' %}">Dashboard</a></li>
+          <li><a class="hoa" href="{% url 'Add_Train' %}">Add Train</a></li>
+          <li><a class="hoa" href="{% url 'Add_Route' %}">Add Root</a></li>
+          <li><a class="hoa" href="{% url 'View_Route' %}">View Root</a></li>
+          <li><a class="hoa" href="{% url 'train_Report' %}">Train Report</a></li>
+          <li><a class="hoa" href="">View Booking</a></li>
+          <li><a class="log" href="">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+
+     <br><br><br><br><br><br><br>
+     <div id='inner'>
+        <ul>
+          <li><a class="ad-dash" href="{% url 'registerpage' %}">Dashboard</a></li><br>
+          <li><a class="ad-dash" href="{% url 'Add_Train' %}">Add Train</a></li><br>
+          <li><a class="ad-dash" href="{% url 'Add_Route' %}">Add Root</a></li><br>
+          <li><a class="ad-dash" href="{% url 'View_Route' %}">View Root</a></li><br>
+          <li><a class="ad-dash" href="{% url 'train_Report' %}">Train Report</a></li><br>
+          <li><a class="ad-dash" href="{% url 'registerpage' %}">View Booking</a></li><br>
+          <li><a class="ad-dash" href="{% url 'registerpage' %}">Logout</a></li><br>
+        </ul>
+        </center>
+     </div>
+    
+        
+       
+    </div>
+
+    <footer id="foot-bar" style="background-image: url({% static 'foot.jpg' %})">
+      <center><div>Made with Love</div></center>
+    </footer>
+  </body>
+</html>

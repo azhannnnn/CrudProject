@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table {
+  
+            border: 2px solid rgb(31, 31, 31);
+            width: 1200px;
+            color: white;
+            background-color: rgb(59, 59, 59);
+            align-items: center;
+            text-align: center;
+          }
+          #table tr {
+            height: 60px;
+            font-size: 20px;
+            font-weight: 800;
+          }
+          #table tr th {
+            margin-left: 50px;
+            margin-right: 100px;
+            text-align: center;
+          }
+          #tr {
+            background-color: white;
+            color: rgb(61,58,58);
+          }
+    </style>
+</head>
+<body>
+<div id="booking">
+        <center>
+          <table id="table">
+            <tr>
+              <th>Sr no.</th>
+              <th>Train Name</th>
+              <th>Train No.</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Departure Time</th>
+              <th>Arival Time</th>
+              <th>Distance</th>
+              <th>Action</th>
+            </tr>
+            {% for i in data %}
+            <tr id="tr">
+                <td>{{forloop.counter}}</td>
+                <td>{{ i.TrainName}}</td>
+                <td>{{i.TrainNo}}</td>
+                <td>{{i.From}}</td>
+                <td>{{i.To}}</td>
+                <td>{{i.DepartureTime}}</td>
+                <td>{{i.ArivalTime}}</td>
+                <td>{{i.Distance}}</td>
+                <td><a href="">Delete</a></td>
+                <td><a href="">Update</a></td>
+                
+              </tr>
+              {% endfor  %}
+          </table>
+        </center>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.3)),url({% static 'img1.jpeg' %});" id="back">
+      <nav id="nav-bar">
+        <div id="logo">MY Train</div>
+        <div id="links">
+          <ul>
+            <li><a class="hoa" href="">Dashboard</a></li>
+            <li><a class="hoa" href="">Search Train</a></li>
+            <li><a class="hoa" href="">My Booking</a></li>
+            <li><a class="log" href="">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      {% comment %} <br /><br /><br /><br /><br /><br /><br /><br> {% endcomment %}
+      <div id="booking">
+        <center>
+          <h1 id="dash-head1">My Bookings</h1>
+          
+            <form action="{% url 'train_detail' %}" method="post">
+                {% csrf_token %}
+                <input type="text" placeholder="Train Name" name="Tname" required /><br>
+                <input type="text" placeholder="Train number" name="Tno" required /><br>
+                <input type="text" placeholder="From" name="From" required /><br>
+                <input type="text" placeholder="To(Enter destiunation)" name="To" required /><br>
+                <input type="text" placeholder="Departure Time" name="Depar" required /><br>
+                <input type="text" placeholder="Arival Time" name="Arival" required /><br>
+                <input type="text" placeholder="Distance" name="Distance" required /><br>
+                
+                <br />
+                <button type="submit">Add Train</button>
+              </form>
+        </center>
+      </div>
+    </div>
+
+    <footer id="foot-bar" style="background-image: url({% static 'foot.jpg' %})">
+      <center><div>Made with Love</div></center>
+    </footer>
+  </body>
+</html>
+
+
+
+
+
+
+
+

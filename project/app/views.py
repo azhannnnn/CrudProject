@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django .http import HttpResponse
 from .models import *
 
@@ -75,3 +75,62 @@ def userLogin(request):
 
 def dashboard(request):
     return render(request,'dashboard.html')
+
+
+def admin_dash(request):
+    return render(request,'admin-dash.html')
+
+
+
+# Admin Dashboard
+def Add_Train(request):
+    return render(request,'Add-train.html')
+
+def Add_Route(request):
+    return render(request,'Add-Root.html')
+
+def View_Route(request):
+    return render(request,'View-Root.html')
+
+def train_Report(request):
+    data=AddTrain.objects.all()
+    return render(request,'train-Report.html',{'data':data})
+
+
+def train_detail(request):
+    if request.method == 'POST':
+        TrainName= request.POST.get("Tname")
+        TrainNo= request.POST.get("Tno")
+        From= request.POST.get("From")
+        To= request.POST.get("To")
+        DepartureTime= request.POST.get("Depar")
+        ArivalTime= request.POST.get("Arival")
+        Distance= request.POST.get("Distance")
+        AddTrain.objects.create(
+            TrainName=TrainName,
+            TrainNo=TrainNo,
+            From=From,
+            To=To,
+            DepartureTime=DepartureTime,
+            ArivalTime=ArivalTime,
+            Distance=Distance,
+        )
+        data=AddTrain.objects.all()
+        return render(request,'train-Report.html',{'data':data})
+    
+
+
+def root_detail(request):
+    if request.method == 'POST':
+        Train= request.POST.get("Tname")
+        Root= request.POST.get("Tno")
+        Distance= request.POST.get("From")
+        Fere= request.POST.get("To")
+        Add_route.objects.create(
+            Train=Train,
+            Root=Root,
+            Distance=Distance,
+            Fere=Fere
+        )
+        data=AddTrain.objects.all()
+        return render(request,'View-Root.html',data)    
