@@ -206,7 +206,8 @@ def cancel(request,pk):
 
 # Admin Dashboard
 def admin_dash(request):
-    return render(request,'admin-dash.html')
+    name = request.session['name']
+    return render(request,'admin-dash.html',{'user':name})
 
 def Add_Train(request):
     return render(request,'Add-train.html')
