@@ -11,14 +11,14 @@
   <body>
     <div style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3)),url({% static 'img1.jpeg' %})" id="back" >
     <nav id="nav-bar">
-      <div id="logo">MY Train</div>
+      <div id="logo">MY Train</div> 
       <div id="links">
         <ul>
-          <li><a class="hoa" href="{% url 'registerpage' %}">Dashboard</a></li>
-          <li><a class="hoa" href="{% url 'registerpage' %}">Booking</a></li>
-          <li><a class="hoa" href="{% url 'registerpage' %}">My tickets</a></li>
-          <li><a class="hoa" href="{% url 'registerpage' %}">Signup</a></li>
-          <li><a class="log" href="{% url 'registerpage' %}">Logout</a></li>
+          <li><p class="hoa">Welcome, {{Name}}</p></li>
+          {% comment %} <li><a class="hoa" href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li><a class="hoa" href="{% url 'booking' %}">Booking</a></li>
+          <li><a class="hoa" href="{% url 'registerpage' %}">My tickets</a></li> {% endcomment %}
+          <li><a class="log" href="{% url 'logout' %}">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -26,11 +26,12 @@
 
      <br><br><br><br><br><br><br>
      <div id='inner'>
-        <center><button id='btn-dash'>My Profile</button><br>
-        <button id='btn-dash'>Bookings</button><br>
-        <button id='btn-dash'>My tickets</button><br>
-        <button id='btn-dash'>Journey</button><br>
-        <button id='btn-dash'>Logout</button><br>
+        <center>
+          <h1 id="dash-head">Dashboard</h1> 
+          <button id='btn-dash'><a href="{% url 'search' %}">Search Train</a></button><br>
+        <button id='btn-dash'><a href="{% url 'booking' %}">My Booking</a></button><br>
+        <button id='btn-dash'><a href="{% url 'enquiry' %}">Enquiry</a></button><br>
+        <button id='btn-dash'><a href="{% url 'logout' %}">Logout</a></button><br>
         </center>
      </div>
     

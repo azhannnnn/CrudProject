@@ -23,7 +23,7 @@
       {% comment %} <h1 style="color:red;">{{msg}}</h1> {% endcomment %}
         <h1>Login</h1>
         <div>
-          <form action="{% url 'userLogin' %}" method="post">
+          <form action="{% url 'Admin_Login' %}" method="post">
             {% csrf_token %}
             
             <input type="email" name="email" placeholder="Email" required="" />
@@ -37,12 +37,9 @@
             />
             <br />
 
-            <button value="SIGNIN" onclick="display();">Login</button>
+            <button value="SIGNIN" onclick="display();">Login as Admin</button>
           </form>
-          <p>
-            Don't have an Account?
-            <a id="rega" href="{% url 'registerpage' %}"> Register Now!</a>
-          </p>
+        
          
         </div>
       </div>

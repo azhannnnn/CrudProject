@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.3)),url({% static 'img1.jpeg' %});" id="back">
+      <nav id="nav-bar">
+        <div id="logo">MY Train</div>
+        <div id="links">
+          <ul>
+            <li><a class="hoa" href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a class="hoa" href="{% url 'booking' %}">My Booking</a></li>
+            <li><a class="hoa" href="{% url 'enquiry' %}">Enquiry</a></li>
+            <li><a class="log" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      {% comment %} <br /><br /><br /><br /><br /><br /><br /><br> {% endcomment %}
+      <div id="booking">
+        <center>
+          <h1 id="dash-head1">Search Trains</h1>
+            <form action="{% url 'user_search' %}" method='get'>
+              <input type="text" placeholder="Search Train" name="search" id="search"/>
+              <button type="submit">Search</button>
+            </form>
+            {% if key %}
+          <table id="table">
+            <tr>
+              <th>Sr no.</th>
+              <th>Train Name</th>
+              <th>Train No.</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Departure Time</th>
+              <th>Arival Time</th>
+              <th>Distance</th>
+              <th>Action</th>
+            </tr>
+            {% for i in key %}
+            <tr id="tr">
+                <td>{{forloop.counter}}</td>
+                <td>{{ i.TrainName}}</td>
+                <td>{{i.TrainNo}}</td>
+                <td>{{i.From}}</td>
+                <td>{{i.To}}</td>
+                <td>{{i.DepartureTime}}</td>
+                <td>{{i.ArivalTime}}</td>
+                <td>{{i.Distance}}</td>
+                <td><a href="{% url 'bookuser' pk=i.id %}">Book</a></td>
+              </tr>
+              {% endfor  %}
+          </table>
+          <button id="btn-dash"><a  href="{% url 'search' %}">Back</a></button>
+          {% else %}
+            <table id="table">
+              <tr>
+                <th>Sr no.</th>
+                <th>Train Name</th>
+                <th>Train No.</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departure Time</th>
+                <th>Arival Time</th>
+                <th>Distance</th>
+                <th>Action</th>
+              </tr>
+              {% for i in user %}
+              <tr id="tr">
+                  <td>{{forloop.counter}}</td>
+                  <td>{{ i.TrainName}}</td>
+                  <td>{{i.TrainNo}}</td>
+                  <td>{{i.From}}</td>
+                  <td>{{i.To}}</td>
+                  <td>{{i.DepartureTime}}</td>
+                  <td>{{i.ArivalTime}}</td>
+                  <td>{{i.Distance}}</td>
+                  <td><a href="{% url 'bookuser' pk=i.id %}">Book</a></td>
+                  
+                </tr>
+                {% endfor  %}
+            </table>
+            {% endif %}
+        </center>
+      </div>
+    </div>
+
+    <footer id="foot-bar" style="background-image: url({% static 'foot.jpg' %})">
+      <center><div>Made with Love</div></center>
+    </footer>
+  </body>
+</html>

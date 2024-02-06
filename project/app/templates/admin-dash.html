@@ -14,13 +14,8 @@
       <div id="logo">MY Train</div>
       <div id="links">
         <ul>
-          <li><a class="hoa" href="{% url 'registerpage' %}">Dashboard</a></li>
-          <li><a class="hoa" href="{% url 'Add_Train' %}">Add Train</a></li>
-          <li><a class="hoa" href="{% url 'Add_Route' %}">Add Root</a></li>
-          <li><a class="hoa" href="{% url 'View_Route' %}">View Root</a></li>
-          <li><a class="hoa" href="{% url 'train_Report' %}">Train Report</a></li>
-          <li><a class="hoa" href="">View Booking</a></li>
-          <li><a class="log" href="">Logout</a></li>
+          <li><a class="hoa" href="">Welcome {{user.Name}}</a></li>
+          <li><a class="log" href="{% url 'logout' %}">Logout</a></li>
         </ul>
       </div>
     </nav>
@@ -28,15 +23,12 @@
 
      <br><br><br><br><br><br><br>
      <div id='inner'>
-        <ul>
-          <li><a class="ad-dash" href="{% url 'registerpage' %}">Dashboard</a></li><br>
-          <li><a class="ad-dash" href="{% url 'Add_Train' %}">Add Train</a></li><br>
-          <li><a class="ad-dash" href="{% url 'Add_Route' %}">Add Root</a></li><br>
-          <li><a class="ad-dash" href="{% url 'View_Route' %}">View Root</a></li><br>
-          <li><a class="ad-dash" href="{% url 'train_Report' %}">Train Report</a></li><br>
-          <li><a class="ad-dash" href="{% url 'registerpage' %}">View Booking</a></li><br>
-          <li><a class="ad-dash" href="{% url 'registerpage' %}">Logout</a></li><br>
-        </ul>
+      <center>
+        <h1 id="dash-head">Admin Dashboard</h1> 
+       <button id='btn-dash'><a href="{% url 'Add_Train' %}">Add Train</a></button><br>
+        <button id='btn-dash'><a href="{% url 'train_Report' %}">Train Report</a></button><br>
+        <button id='btn-dash'><a href="{% url 'viewbooking' %}">View Booking</a></button><br>
+        <button id='btn-dash'><a href="{% url 'logout' %}">Logout</a></button><br>
         </center>
      </div>
     

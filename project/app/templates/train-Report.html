@@ -1,38 +1,48 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
     <style>
-        #table {
-  
-            border: 2px solid rgb(31, 31, 31);
-            width: 1200px;
-            color: white;
-            background-color: rgb(59, 59, 59);
-            align-items: center;
-            text-align: center;
-          }
-          #table tr {
-            height: 60px;
-            font-size: 20px;
-            font-weight: 800;
-          }
-          #table tr th {
-            margin-left: 50px;
-            margin-right: 100px;
-            text-align: center;
-          }
-          #tr {
-            background-color: white;
-            color: rgb(61,58,58);
-          }
+      #search{
+        width:50%;
+        font-size:25px;     
+       }
+       button{
+        font-size:20px;
+       }
     </style>
-</head>
-<body>
-<div id="booking">
+  </head>
+
+  <body>
+    <div
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.3)),url({% static 'img1.jpeg' %});" id="back">
+      <nav id="nav-bar">
+        <div id="logo">MY Train</div>
+        <div id="links">
+          <ul>
+            <li><a class="hoa" href="{% url 'admin-dash' %}">Dashboard</a></li>
+            <li><a class="hoa" href="{% url 'Add_Train' %}">Add Train</a></li>
+          <li><a class="hoa" href="{% url 'viewbooking' %}">View Bookings</a></li>
+          <li><a class="log" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      {% comment %} <br /><br /><br /><br /><br /><br /><br /><br> {% endcomment %}
+      <div id="booking">
         <center>
+
+          <h1 id="dash-head1">My Bookings</h1>
+          <form action="{% url 'Search_train' %}" method='get'>
+            <input type="text" placeholder="Search Train" name="search" id="search"/>
+            <button type="submit">Search</button>
+          </form>
+
+          {% if key %}
           <table id="table">
             <tr>
               <th>Sr no.</th>
@@ -44,8 +54,9 @@
               <th>Arival Time</th>
               <th>Distance</th>
               <th>Action</th>
+              <th>Action</th>
             </tr>
-            {% for i in data %}
+            {% for i in key %}
             <tr id="tr">
                 <td>{{forloop.counter}}</td>
                 <td>{{ i.TrainName}}</td>
@@ -55,13 +66,62 @@
                 <td>{{i.DepartureTime}}</td>
                 <td>{{i.ArivalTime}}</td>
                 <td>{{i.Distance}}</td>
-                <td><a href="">Delete</a></td>
-                <td><a href="">Update</a></td>
-                
+                <td><a href="{% url 'editTrain' pk=i.id %}">Edit</a></td>
+                <td><a href="{% url 'delete' pk=i.id %}">Delete</a></td>
               </tr>
               {% endfor  %}
           </table>
+          <button id="btn-dash"><a  href="{% url 'train_Report' %}">Back</a></button>
+
+          {% else %}
+          
+          <table id="table">
+            <tr>
+              <th>Sr no.</th>
+              <th>Train Name</th>
+              <th>Train No.</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Departure Time</th>
+              <th>Arival Time</th>
+              <th>Distance</th>
+              <th>Action</th>
+              <th>Action</th>
+            </tr>
+            {% for i in user %}
+            <tr id="tr">
+                <td>{{forloop.counter}}</td>
+                <td>{{ i.TrainName}}</td>
+                <td>{{i.TrainNo}}</td>
+                <td>{{i.From}}</td>
+                <td>{{i.To}}</td>
+                <td>{{i.DepartureTime}}</td>
+                <td>{{i.ArivalTime}}</td>
+                <td>{{i.Distance}}</td>
+                <td><a href="{% url 'editTrain' pk=i.id %}">Edit</a></td>
+                <td><a href="{% url 'delete' pk=i.id %}">Delete</a></td>
+              </tr>
+              {% endfor  %}
+          </table>
+          {% endif %}
         </center>
-</div>
-</body>
+      </div>
+    </div>
+
+    <footer id="foot-bar" style="background-image: url({% static 'foot.jpg' %})">
+      <center><div>Made with Love</div></center>
+    </footer>
+  </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

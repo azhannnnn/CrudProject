@@ -23,7 +23,7 @@
       {% comment %} <h1 style="color:red;">{{msg}}</h1> {% endcomment %}
           <h1>Signup</h1>
           <div>
-            <form action="{% url "user_register" %}" method="post">
+            <form action="{% url 'user_register' %}" method="post">
               {% csrf_token %}
               <input type="text" placeholder="Full Name" name="name" required />
               <input type="email" placeholder="email" name="email" required />
@@ -41,14 +41,6 @@
               <br />
               <button value="SIGNUP"  onclick="display1();">Register</button>
             </form>
-            <label for="qualification">Qualification:</label>
-             <select id="qualification" name="quali" required> 
-                <option value="BE">BE</option>
-                <option value="B.Tech">B.Tech</option>
-                <option value="ME">ME</option>
-                <option value="M.Tech">M.Tech</option>
-              </select><br><br><br>
-            <p>
               have an Account?
               <a id="rega" href="{% url 'loginpage' %}">Login</a>
             </p><br>

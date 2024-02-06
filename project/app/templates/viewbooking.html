@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+
+  <body>
+    <div
+      style="background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.3)),url({% static 'img1.jpeg' %});" id="back">
+      <nav id="nav-bar">
+        <div id="logo">MY Train</div>
+        <div id="links">
+          <ul>
+              <li><a class="hoa" href="{% url 'admin-dash' %}">Dashboard</a></li>
+            <li><a class="hoa" href="{% url 'Add_Train' %}">Add Train</a></li>
+            <li><a class="hoa" href="{% url 'train_Report' %}">Train Report</a></li>
+            <li><a class="log" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      {% comment %} <br /><br /><br /><br /><br /><br /><br /><br> {% endcomment %}
+      <div id="booking">
+        <center>
+          <h1 id="dash-head1">Customer Bookings</h1>
+          
+          {% if data %}
+
+          <table id="table">
+            <tr>
+              <th>Sr no.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Train Name</th>
+              <th>Train No.</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Departure Time</th>
+              <th>Distance</th>
+              <th>Action</th>
+            </tr>
+            {% for i in data %}
+            <tr id="tr">
+                <td>{{forloop.counter}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Email}}</td>
+                <td>{{ i.TrainName}}</td>
+                <td>{{i.TrainNo}}</td>
+                <td>{{i.From}}</td>
+                <td>{{i.To}}</td>
+                <td>{{i.DepartureTime}}</td>
+                <td>{{i.Distance}}</td>
+  
+                <td><a href="{% url 'suspend' pk=i.id %}">Cancel</a></td>
+                
+              </tr>
+              {% endfor  %}
+            </table>
+          {% else %}
+           <h1 id="dash-head1">{{msg}}</h1>
+          {% endif %}
+
+            
+        </center>
+      </div>
+    </div>
+
+    <footer id="foot-bar" style="background-image: url({% static 'foot.jpg' %})">
+      <center><div>Made with Love</div></center>
+    </footer>
+  </body>
+</html>
