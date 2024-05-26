@@ -31,12 +31,12 @@
         
           <form action="{% url 'booknow' %}" method="post">
               {% csrf_token %}
-              <input type="text"  name="Tname" required  value='{{User.TrainName}}'/>
-              <input type="text"  name="Tno" required  value='{{User.TrainNo}}'/><br>
-              <input type="text"  name="From" required  value='{{User.From}}'/>
-              <input type="text"  name="To" required value='{{User.To}}' /><br>
-              <input type="text"  name="Depar" required  value='{{User.DepartureTime}}'/>
-              <input type="text"  name="Distance" required value='{{User.Distance}} '/>
+              <input type="text"  name="Tname" required readonly value='{{User.TrainName}}'/>
+              <input type="text"  name="Tno" required readonly value='{{User.TrainNo}}'/><br>
+              <input type="text"  name="From" required readonly  value='{{User.From}}'/>
+              <input type="text"  name="To" required readonly value='{{User.To}}' /><br>
+              <input type="text"  name="Depar" required readonly value='{{User.DepartureTime}}'/>
+              <input type="text"  name="Distance" required readonly value='{{User.Distance}} km'/>
               <h1 id="dash-head2">User Details</h1>
               <input type="text"  name="Name" required value='{{User.Name}} '/><br>
               <input type="text"  name="Email" required value='{{User.Email}}' /><br>

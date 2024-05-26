@@ -314,3 +314,75 @@ button {
   margin-bottom: 30px;
   transition: all .3s ease-in-out;
 }
+
+
+
+@media only screen and (max-width: 768px) {
+
+  /* Adjust styles for smaller screens here */
+
+  #nav-bar {
+    height: 10vh; /* Reduce navbar height */
+    font-size: 16px; /* Reduce font sizes */
+  }
+
+  #links ul li {
+    padding-right: 20px; /* Reduce padding between links */
+    font-size: 16px; /* Reduce font size */
+  }
+
+  .a, .b {
+    width: 80%; /* Increase width of sections */
+    margin-top: 50px; /* Reduce margin top */
+  }
+
+  .a h1, .b h1 {
+    font-size: 20px; /* Reduce heading size */
+  }
+
+  input, button {
+    width: 80%; /* Increase input and button width */
+  }
+
+  #foot-bar {
+    height: 15vh; /* Reduce footer height */
+  }
+
+  #inner {
+    width: 80%; /* Increase inner section width */
+  }
+
+  #btn-dash {
+    width: 300px; /* Reduce button width */
+    font-size: 18px; /* Reduce font size */
+  }
+
+  #home-abt {
+    font-size: medium; /* Reduce font size */
+  }
+
+  #inner ul li {
+    font-size: 18px; /* Reduce list item font size */
+  }
+
+  #dash-head {
+    font-size: 30px; /* Reduce heading size */
+  }
+
+  #dash-head1, #dash-head2 {
+    font-size: 20px; /* Reduce heading size */
+  }
+
+  #table {
+    width: 100%; /* Set table to full width */
+  }
+
+  #table tr th {
+    margin-left: 20px;
+    margin-right: 50px; /* Adjust spacing between table headers */
+  }
+
+  #contact input, #contact textarea {
+    width: 90%; /* Increase input and textarea width */
+  }
+}

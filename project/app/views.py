@@ -306,7 +306,7 @@ def delete(request,pk):
 def Search_train(request):
     if request.method == 'GET':
         search=request.GET.get('search')
-        key = AddTrain.objects.filter( Q(TrainName=search ) |  Q(TrainNo=search))
+        key = AddTrain.objects.filter( Q(TrainName=search ) or  Q(TrainNo=search))
         print(key)
         return render(request,'train-Report.html',{'key':key})
 
